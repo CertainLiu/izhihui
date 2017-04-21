@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Liu Yiding</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/about.css">
+</head>
+<body>
+<div class="app" id="app"></div>
+<div class="box">
+	<div class="left">
+		<div class="l_plate">
+			<div class="l_title"><span>其 他 板 块</span></div>
+			<div class="other_plate">
+				<ul>
+					<li><a href="index.html"><img src="../images/small_h_icon.png"></a></li>
+					<li><a href="information.html"><img src="../images/small_i_icon.png"></a></li>
+					<li><a href="masterpiece.html"><img src="../images/small_m_icon.png"></a></li>
+					<li><a href="resource.html"><img src="../images/small_r_icon.png"></a></li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="right">
+		<div class="information">
+			<div class="right_title">关于网站</div>
+			<div class="right_main">
+				<p class="end_text">Thank you for visiting.</p>
+				<br>
+				<p>谢谢您能花费时间来了解我的人生，如果您在参观网站时发现了bug，可以
+				通过我的联系方式联系我，会获得一定的现金奖励！
+				</p>
+				<br>
+				<p>如果您是HR，刚好我又需要一份工作，您在参观完网站并且觉得还勉强可以的话，
+				希望您能找我聊聊。
+				</p><br><br><br><br><br><br><br><br>
+				<div class="less_information_center">
+					<ul>
+						<li><img src="../images/tel_icon.png"><span id="user_tel">18757874341</span></li>
+						<li><img src="../images/email_icon.png"><span id="user_email">1196157806@qq.com</span></li>
+						<li><img src="../images/qq_icon.png"><span id="user_qq">1196157806</span></li>
+					</ul>
+				</div><br>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/ajax/session_admin.js"></script>
+<script type="text/javascript" src="../js/setFullBg.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		setFullBg("app");
+		$.ajax({
+			url:'../php/indexInformation.php',
+			type:'POST',
+			success: function (data){
+				var array=eval("("+data+")")
+				$("#user_tel").html(array.tel);
+				$("#user_email").html(array.e_mail);
+				$("#user_qq").html(array.qq);
+			}
+		});
+		window.onresize = function(){
+			setFullBg("app");
+		}
+	}
+</script>
+</body>
+</html>

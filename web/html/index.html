@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Liu Yiding</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
+</head>
+<body>
+<div class="app" id="app">
+	<div class="text_title">
+		<img src="../images/Ahome_title.png">
+	</div>
+	<div class="bottom_area">
+		<div class="user_photo">
+			<img src="../images/user_photo.jpg">
+		</div>
+		<div class="less_information">
+			<div class="less_information_top" id="user_name">刘意定</div>
+			<div class="less_information_center">
+				<ul>
+					<li><img src="../images/tel_icon.png"><span id="user_tel">18757874341</span></li>
+					<li><img src="../images/email_icon.png"><span id="user_email">1196157806@qq.com</span></li>
+					<li><img src="../images/qq_icon.png"><span id="user_qq">1196157806</span></li>
+				</ul>
+			</div>
+			<div class="less_information_bottom"><span><a href="information.html" class="mor_info">更多信息>></a></span></div>
+		</div>
+		<div class="fast_nav" id="fastNav">
+			<ul>
+				<li><a href="information.html"><img src="../images/i_icon.png"></a></li>
+				<li><a href="masterpiece.html"><img src="../images/m_icon.png"></a></li>
+				<li><a href="resource.html"><img src="../images/r_icon.png"></a></li>
+				<li><a href="about.html"><img src="../images/a_icon.png"></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/ajax/session_admin.js"></script>
+<script type="text/javascript" src="../js/setFullBg.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		setFullBg("app");
+		$.ajax({
+			url:'../php/indexInformation.php',
+			type:'POST',
+			success: function (data){
+				var array=eval("("+data+")")
+				$("#user_name").html(array.user_name);
+				$("#user_tel").html(array.tel);
+				$("#user_email").html(array.e_mail);
+				$("#user_qq").html(array.qq);
+			}
+		});
+		window.onresize = function(){
+			setFullBg("app");
+		}
+	}
+</script>
+</body>
+</html>

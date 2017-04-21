@@ -1,0 +1,31 @@
+#mask_area{
+	display: block;
+	background-color: #f6f6f6;
+}
+.token_area{
+	width: 20%;
+	padding: 100px 100px;
+	background-color: #FFF;
+	text-align: center;
+	font-size: 20px;
+	margin-top: 15%;
+	opacity: 1;
+	position: absolute;
+	left: 34.5%;
+	z-index: 2;
+	border: 1px solid #c7c7c7;
+}
+.mask_text{
+	width: 150px;
+	font-family: myFont;
+}
+.mask_btn{
+	height: 32px;
+	background-color: #FFF;
+	border: 1px solid #7a7a7a;
+	font-family: myFont;
+	vertical-align: bottom;
+}
+.mask_btn:hover{
+	cursor: pointer;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Liu Yiding</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/masterpiece.css">
+</head>
+<body>
+<div id="m_mask" style="display: none;">
+	<div class="mask" id="mask"></div>
+	<div class="mask_con">
+		<img id="close" src="../images/close.png" />
+		<ul>
+			<li data-index="img1" style="display: none"><img src="../images/design_masterpiece/design_big_01.jpg" /></li>
+			<li data-index="img2" style="display: none"><img src="../images/design_masterpiece/design_big_02.jpg" /></li>
+			<li data-index="img3" style="display: none"><img src="../images/design_masterpiece/design_big_03.jpg" /></li>
+			<li data-index="img4" style="display: none"><img src="../images/design_masterpiece/design_big_04.jpg" /></li>
+			<li data-index="img5" style="display: none"><img src="../images/design_masterpiece/design_big_05.jpg" style="max-width: 50%;" /></li>
+			<li data-index="img6" style="display: none"><img src="../images/design_masterpiece/design_big_06.jpg" style="max-width: 50%;" /></li>
+		</ul>
+	</div>
+</div>
+<div class="app" id="app"></div>
+<div class="box">
+	<div class="left">
+		<div class="l_plate">
+			<div class="l_title"><span>其 他 板 块</span></div>
+			<div class="other_plate">
+				<ul>
+					<li><a href="index.html"><img src="../images/small_h_icon.png"></a></li>
+					<li><a href="information.html"><img src="../images/small_i_icon.png"></a></li>
+					<li><a href="resource.html"><img src="../images/small_r_icon.png"></a></li>
+					<li><a href="about.html"><img src="../images/small_a_icon.png"></a></li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="right">
+		<div class="information">
+			<div class="right_title">网站项目</div>
+			<div class="right_main information_main">
+				<ul id="web_item">
+					<li><a href="" id="xiangquan"><img src="../images/web_masterpiece/xq.jpg" /></a><span class="item_text">湘圈</span></li>
+					<li><img src="../images/web_masterpiece/order_goods.jpg" /><span class="item_text">订货商城</span></li>
+					<li><a href="http://www.25job.com/"><img src="../images/web_masterpiece/job25.jpg" /></a><span class="item_text">易职人才</span></li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="information">
+			<div class="right_title">美工设计</div>
+			<div class="right_main information_main" id="master_des">
+				<ul>
+					<li data-index="img1"><img src="../images/design_masterpiece/design_01.jpg" /></li>
+					<li data-index="img2"><img src="../images/design_masterpiece/design_02.jpg" /></li>
+					<li data-index="img3"><img src="../images/design_masterpiece/design_03.jpg" /></li>
+					<li data-index="img4"><img src="../images/design_masterpiece/design_04.jpg" /></li>
+					<li data-index="img5"><img src="../images/design_masterpiece/design_05.jpg" /></li>
+					<li data-index="img6"><img src="../images/design_masterpiece/design_06.jpg" /></li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/ajax/session_admin.js"></script>
+<script type="text/javascript" src="../js/setFullBg.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		setFullBg("app");
+		setFullBg("mask");
+		$("#xiangquan").click(function(){
+			alert('请打开微信搜索"湘圈"公众号查看');
+		});
+		$("#master_des ul li").bind('click',function(event) {
+			$("#m_mask").show();
+			$(".mask_con ul li").hide();
+			var index = $(this).attr('data-index');
+			var ele = $(".mask_con ul li");
+			ele.each(function(self, el) {
+				if($(this).attr('data-index')==index){
+					$(this).show();
+				};
+			});
+		});
+		$('#close').live('click',function(){
+			$(".mask_con ul li").hide();
+			$("#m_mask").hide();
+		});
+		window.onresize = function(){
+			setFullBg("app");
+			setFullBg("mask");
+		}
+	}
+</script>
+</body>
+</html>

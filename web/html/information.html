@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Liu Yiding</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/information.css">
+</head>
+<body>
+<div class="app" id="app"></div>
+<div class="box" id="box">
+	<div class="left">
+		<div class="l_plate">
+			<div class="l_title"><span>其 他 板 块</span></div>
+			<div class="other_plate">
+				<ul>
+					<li><a href="index.html"><img src="../images/small_h_icon.png"></a></li>
+					<li><a href="masterpiece.html"><img src="../images/small_m_icon.png"></a></li>
+					<li><a href="resource.html"><img src="../images/small_r_icon.png"></a></li>
+					<li><a href="about.html"><img src="../images/small_a_icon.png"></a></li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="l_plate l_bottom">
+			<div class="l_title"><span>快 速 定 位</span></div>
+			<div class="anchor_tag">
+				<ul>
+					<li><a href="#info">基本信息</a></li>
+					<li><a href="#contact">联系方式</a></li>
+					<li><a href="#work_exp">工作经历</a></li>
+					<li><a href="#study_exp">教育经历</a></li>
+					<li><a href="#honor_area">所得荣誉</a></li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="right">
+		<div class="information" id="info">
+			<div class="right_title">基本信息</div>
+			<div class="right_main information_main">
+				<ul>
+					<li>姓名：<span id="user_name"></span></li>
+					<li>性别：<span id="sex"></span></li>
+					<li>出生年月：<span id="birthday"></span></li>
+					<li>婚姻状况：<span id="marriage"></span></li>
+					<li>政治面貌：<span id="political"></span></li>
+					<li>籍贯：<span id="hometown"></span></li>
+					<li>目前所在地：<span id="location"></span></li>
+					<li>最高学历：<span id="education"></span></li>
+					<li>是否会进行成人高考：<span id="educationplus"></span></li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="information" id="contact">
+			<div class="right_title">联系方式</div>
+			<div class="right_main">
+				<ul>
+					<li>手机号码：<span id="tel"></span></li>
+					<li>QQ号码：<span id="qq"></span></li>
+					<li>邮箱：<span id="email"></span></li>
+				</ul>
+			</div>
+		</div>
+		<div class="information" id="work_exp">
+			<div class="right_title">工作经历</div>
+			<div id="work_experience"></div>
+		</div>
+		<div class="information" id="study_exp">
+			<div class="right_title">教育经历</div>
+			<div id="education_eXperience"></div>
+		</div>
+		<div class="information" id="honor_area">
+			<div class="right_title">所得荣誉</div>
+			<div id="honor"></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/ajax/session_admin.js"></script>
+<script type="text/javascript" src="../js/setFullBg.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		setFullBg("app");
+		$.ajax({
+			url:"../php/essentialInformation.php",
+			type:"POST",
+			success:function(data){
+				var array = eval("("+data+")");
+				$("#user_name").html(array.user_name);
+				$("#sex").html(array.sex);
+				$("#birthday").html(array.birthday);
+				$("#marriage").html(array.marriage);
+				$("#political").html(array.political);
+				$("#hometown").html(array.hometown);
+				$("#location").html(array.location);
+				$("#education").html(array.education);
+				$("#educationplus").html(array.educationplus);
+				$("#tel").html(array.tel);
+				$("#qq").html(array.qq);
+				$("#email").html(array.email);
+			}
+		});
+		$.ajax({
+			url:"../php/workExperience.php",
+			type:"POST",
+			success:function(data){
+				$("#work_experience").html(data);
+			}
+		});
+		$.ajax({
+			url:"../php/educationEXperience.php",
+			type:"POST",
+			success:function(data){
+				$("#education_eXperience").html(data);
+			}
+		});
+		$.ajax({
+			url:"../php/honor.php",
+			type:"POST",
+			success:function(data){
+				$("#honor").html(data);
+			}
+		});
+		window.onscroll = function () { 
+			var t = document.documentElement.scrollTop || document.body.scrollTop;
+		 	if(t>482){
+		 		$(".l_bottom").css({
+		 			position:"fixed",
+		 			top:"5px",
+		 			left:"186px"
+		 		});
+		 	}
+		 	if(t<482){
+		 		$(".l_bottom").css({
+		 			position:"relative",
+		 			top:"0px",
+		 			left:"0px"
+		 		});
+		 	}
+		}
+		window.onresize = function(){
+			setFullBg("app");
+		}
+	}
+</script>
+</body>
+</html>

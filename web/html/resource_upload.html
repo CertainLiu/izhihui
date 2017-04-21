@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Liu Yiding</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/resource_upload.css">
+</head>
+<body>
+<p class="text_title">资源板块文件上传</p>
+<div class="box">
+	<ul>
+		<li><label for="name">用户: </label><input type="text" name="name" id="name"></li>
+		<li><label for="tag">标签: </label><input type="text" name="tag" id="tag"></li>
+		<li><label for="title">标题: </label><input type="text" name="title" id="title"></li>
+		<li><label for="website">地址: </label><input type="text" name="website" id="website"></li>
+	</ul>
+	<input type="button" name="btn" value="开始添加" class="btn">
+</div>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+	$(".btn").click(function(){
+		var name = $("#name").val();
+		var tag = $("#tag").val();
+		var title = $("#title").val();
+		var website = $("#website").val();
+		$.ajax({
+			url:'../php/resource_upload.php',
+			type:"POST",
+			data:{name:name,title:title,tag:tag,website:website},
+			success:function(data){
+				if(data){
+					alert(data);
+					location.href = "resource_upload.html";
+					$("#name").val("");
+					$("#tag").val("");
+					$("#title").val("");
+					$("#website").val("");
+				}
+			}
+		});
+	});
+}
+</script>
+</body>
+</html>

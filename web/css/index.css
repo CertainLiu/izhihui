@@ -1,0 +1,104 @@
+.app{ 
+	width: 100%;
+	background-image: url(../images/Ahome_bg.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	font-family: myFont;
+	position: relative;
+	z-index: 0;
+}
+.text_title{
+	 text-align: center;
+	 padding-top: 100px;
+}
+.bottom_area{
+	width: 80%;
+	height: 64%;
+	margin: auto;
+	background-image: url(../images/Ahome_bottom_bg.jpg);
+	background-position: center center;
+	background-repeat: no-repeat; 
+	margin-top: 60px;
+}
+.user_photo{
+	/*150*150*/
+	width: 200px;
+	height: 25%;
+	margin: auto;
+}
+.user_photo img{
+	max-width: 70%;
+	border-radius: 150px;
+	margin-left: 15%;
+	margin-top: -20%
+}
+.less_information{
+	width: 60%;
+	height: 30%;
+	margin: auto;
+	text-align: center;
+}
+.less_information_top{
+	font-size: 30px;
+	font-weight: bold;
+}
+.less_information_center{
+	width: 100%;
+	height: 30%;
+}
+.less_information_center ul li{
+	float: left;
+	width: 33.33%;
+	height: 100%;
+	font-size: 15px;
+}
+.less_information_center ul li span{
+	font-weight: bold;
+	line-height: 42px;
+}
+.less_information_center ul li img{
+	vertical-align: middle;
+	height: 15px;
+	margin-right: 6px;
+}
+.less_information_bottom{
+	margin-top: 0px;
+}
+.less_information_bottom span{
+	width: 20%;
+	height: 100%;
+	color: #f7f7f7;
+	font-size: 15px;
+	padding: 5px 15px;
+	background-color: #595959;
+}
+.mor_info{
+	color: #FFF;
+	text-decoration: none;
+}
+.mor_info:hover{
+	color: #FFF;
+	text-decoration: none;
+}
+.fast_nav{
+	width: 60%;
+	height: 45%;
+	background-color: #ededed;
+	margin: auto;
+}
+.fast_nav ul{
+	width: 80%;
+	height: 100%;
+	margin: auto;
+}
+.fast_nav ul li{
+	width: 24%;
+	height: 100%;
+	float: left;
+	text-align: center;
+	margin-left: 1%;
+}
+.fast_nav ul li img{
+	width: 60%;
+	margin-top: 30%;
+}

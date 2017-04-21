@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Liu Yiding</title>
+	<link rel="stylesheet" type="text/css" href="web/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="web/css/mask.css">
+</head>
+<body>
+<div id="mask_area">
+	<div class="token_area" id="token_area">
+		Token: 
+		<input type="text" name="token" value="" class="mask_text" id="mask_text"> 
+		<input type="button" name="sure_btn" value="GO" class="mask_btn" id="mask_btn">
+	</div>
+</div>
+<script type="text/javascript" src="web/js/jquery.min.js"></script>
+<script type="text/javascript" src="web/js/setFullBg.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		setFullBg("mask_area");
+		var user_btn  = document.getElementById('mask_btn');
+		var mask_area = document.getElementById('mask_area');
+		user_btn.onclick = function(){
+			var user_ele  = document.getElementById('mask_text');
+			var user_name = user_ele.value;
+			$.ajax({
+				url:'web/php/login.php',
+				data: { username:user_name},
+				type:"POST",
+				success: function (data){
+					if(data==1){
+						location.href = "web/html/index.html";
+					}else{
+						alert(data)
+					}
+				}
+			});
+		}
+	}
+	window.onresize = function(){
+		setFullBg("mask_area");
+	}
+</script>
+</body>
+</html>

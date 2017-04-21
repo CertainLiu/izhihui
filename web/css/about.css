@@ -1,0 +1,104 @@
+.app{ 
+	width: 100%;
+	background-image: url(../images/Ahome_bg.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	position:fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 0;
+	
+}
+.box{
+	width: 80%;
+	position: absolute;
+	top: 100px;
+	left: 10%;
+	z-index: 1;
+	padding-bottom: 50px;
+	font-family: myFont;
+}
+.left{
+	float: left;
+	width: 26%;
+}
+.l_plate{
+	padding: 25px 0px;
+	background-color: #FFF;
+}
+.l_title{
+	text-align: center;
+}
+.l_title span{
+	color: #FFF;
+	font-size: 16px;
+	background-color: #822828;
+	padding: 6px 25%;
+}
+.other_plate{
+	padding-top: 10px;
+	padding-left: 18%;
+}
+.other_plate ul li{
+	margin-top: 10px;
+	float: left;
+	width: 40%;
+	text-align: center;
+}
+.other_plate ul li img{
+	width: 65%;
+}
+.right{
+	float: left;
+	width: 70%;
+	padding: 0px 0px 20px;
+	background-color: #FBFBFB;
+	margin-left: 3%;
+}
+.information{
+	margin-top: 20px;
+}
+.right_title{
+	width: 257px;
+	height: 34px;
+	color: #FFF;
+	background-image: url(../images/right_title_bg.png);
+	background-repeat: no-repeat;
+	margin-left: 20px;
+	font-size: 16px;
+	line-height: 34px;
+	padding-left: 10px;
+
+}
+.right_main{
+	margin: 20px 20px 0px;
+	padding: 20px 20px 35px;
+	background-color: #FFF;
+	font-size: 16px;
+	border: 1px solid #e3e3e3;
+}
+.right_main p{
+	text-align: center;
+}
+.end_text{
+	text-align: center;
+}
+.less_information_center{
+	width: 100%;
+	height: 30%;
+	text-align: center;
+}
+.less_information_center ul li{
+	float: left;
+	width: 33.33%;
+	height: 100%;
+	font-size: 15px;
+}
+.less_information_center ul li span{
+	line-height: 42px;
+}
+.less_information_center ul li img{
+	vertical-align: middle;
+	height: 15px;
+	margin-right: 6px;
+}

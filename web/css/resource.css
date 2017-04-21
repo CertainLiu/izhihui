@@ -1,0 +1,164 @@
+.app{ 
+	width: 100%;
+	background-image: url(../images/Ahome_bg.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	position:fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 0;
+	
+}
+.box{
+	width: 80%;
+	position: absolute;
+	top: 100px;
+	left: 10%;
+	z-index: 1;
+	padding-bottom: 100px;
+	font-family: myFont;
+}
+.left{
+	float: left;
+	width: 26%;
+}
+.l_plate{
+	padding: 25px 0px;
+	background-color: #FFF;
+}
+.l_title{
+	text-align: center;
+}
+.l_title span{
+	color: #FFF;
+	font-size: 16px;
+	background-color: #822828;
+	padding: 6px 25%;
+}
+.other_plate{
+	padding-top: 10px;
+	padding-left: 18%;
+}
+.other_plate ul li{
+	margin-top: 10px;
+	float: left;
+	width: 40%;
+	text-align: center;
+}
+.other_plate ul li img{
+	width: 65%;
+}
+.l_bottom{
+	padding: 19.5px 0px;
+	background-color: #FFF;
+	margin-top: 15px;
+}
+.anchor_tag{
+	padding-top: 10px;
+	padding-left: 15%;
+	font-size: 16px;
+	color: #FFF;
+}
+.anchor_tag ul li{
+	float: left;
+	width: 40%;
+	text-align: center;
+	background-color: #929292;
+	margin-right: 6px;
+	margin-top: 10px;
+	padding: 3px 0px;
+}
+.anchor_tag ul li:hover{
+	cursor: pointer;
+}
+.right{
+	float: left;
+	width: 70%;
+	height: 713px;
+	padding: 0px 0px 20px;
+	background-color: #FBFBFB;
+	margin-left: 3%;
+}
+.information{
+	margin-top: 20px;
+}
+.right_title{
+	width: 257px;
+	height: 34px;
+	color: #FFF;
+	background-image: url(../images/right_title_bg.png);
+	background-repeat: no-repeat;
+	margin-left: 20px;
+	font-size: 16px;
+	line-height: 34px;
+	padding-left: 10px;
+
+}
+.right_main{
+	height: 580px;
+	margin: 20px 20px 0px;
+	padding: 20px 20px 35px;
+	background-color: #FFF;
+	font-size: 16px;
+	border: 1px solid #e3e3e3;
+	position: relative;
+}
+.right_main ul{
+	margin-top: 30px;
+}
+.right_main ul hr{
+	margin-top: 10px;
+	color: #FFF;
+}
+.right_main ul li{
+	color: #3f3f3f;
+	margin-top: 10px;
+}
+.right_main ul li a{
+	text-decoration: none;
+}
+.page_bottom{
+	width: 100%;
+	height: 40px;
+	position: absolute;
+	bottom: 70px;
+}
+.page_btn ul li{
+	float: left;
+	background-color: #888888;
+	margin-left: 10px;
+	text-align: center;
+}
+.page_btn ul li{
+	color: #FFF;
+	display: block;
+	width: 60px;
+	height: 26px;
+	line-height: 26px;
+}
+.page_search{
+	float: right;
+	margin-top: 5px;
+	margin-right: 40px;
+}
+.page_search input{
+	vertical-align: middle;
+}
+#search_begin{
+	width: 50px;
+	height: 28px;
+	color: #FFF;
+	font-family: myFont;
+	background-color: #888888;
+	line-height: 20px;
+	border: 0px;
+}
+#search_begin:hover{
+	cursor: pointer;
+}
+.page_btn ul li:hover{
+	cursor: pointer;
+}
+.resource_search{
+	font-size: 15px;
+}

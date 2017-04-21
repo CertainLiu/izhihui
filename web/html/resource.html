@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Liu Yiding</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/resource.css">
+</head>
+<body>
+<div class="app" id="app"></div>
+<div class="box">
+	<div class="left">
+		<div class="l_plate">
+			<div class="l_title"><span>其 他 板 块</span></div>
+			<div class="other_plate">
+				<ul>
+					<li><a href="index.html"><img src="../images/small_h_icon.png"></a></li>
+					<li><a href="information.html"><img src="../images/small_i_icon.png"></a></li>
+					<li><a href="masterpiece.html"><img src="../images/small_m_icon.png"></a></li>
+					<li><a href="about.html"><img src="../images/small_a_icon.png"></a></li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="l_plate l_bottom">
+			<div class="l_title"><span>快 速 查 找</span></div>
+			<div class="anchor_tag">
+				<ul></ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="right">
+		<div class="information">
+			<div class="right_title">资源列表</div>
+			<div class="right_main information_main">
+				<span id="resource_list"></span>
+				<div class="clear"></div>
+				<div class="page_bottom">
+					<div class="page_btn">
+						<ul>
+							<li class="nan_btn">首页</li>
+							<li class="nan_btn">上一页</li>
+							<li class="nan_btn">下一页</li>
+							<li class="nan_btn">末页</li>
+						</ul>
+					</div>
+					<!--<div class="page_search">
+						<input type="text" name="resource_search" id="resource_search" placeholder="请输入关键字">
+						<input type="button" name="search_begin" value="搜索" id="search_begin">
+					</div>-->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/ajax/session_admin.js"></script>
+<script type="text/javascript" src="../js/setFullBg.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		setFullBg("app");
+		var last_page = 100;
+		var p = 1;
+		var tag = "php";
+		$.ajax({
+			url:'../php/resource_tag.php',
+			type:"POST",
+			success: function (data){
+				$(".anchor_tag ul").html(data);
+			}
+		});
+		$.ajax({
+			url:'../php/resourcePage.php',
+			data: { p:p,tag:tag},
+			type:"POST",
+			success: function (data){
+				var arr = eval("("+data+")");
+				$("#resource_list").html(arr['text']);
+				last_page = arr['num'];
+			}
+		});
+		$(".anchor_tag ul li").live("click",function(){
+			var reg = new RegExp("[\\u4E00-\\u9FFF]+","g");
+			if(reg.test($(this).html())){
+				tag = $(this).html().trim();
+			}else{
+				tag = $(this).html().toLocaleLowerCase();
+			}
+			p=1;
+			$.ajax({
+				url:'../php/resourcePage.php',
+				data: { p:p,tag:tag},
+				type:"POST",
+				success: function (data){
+					var arr = eval("("+data+")");
+					$("#resource_list").html(arr['text']);
+					last_page = arr['num'];
+				}
+			});
+		});
+		$(".page_btn ul li").bind('click',function(){
+			if($(this).html()=="首页"){
+				alert("已经是第一页了");
+				p=1;
+			}
+
+			if($(this).html()=="上一页"&&p<=1){
+				alert("已经是第一页了");
+				p=1;
+			}else if($(this).html()=="上一页"&&p>1){
+				p=p-1;
+			}
+
+			if($(this).html()=="下一页"&&p>=last_page){
+				alert("已经是最后一页了");
+				p = last_page;
+			}else if($(this).html()=="下一页"&&p<last_page){
+				p=p+1;
+			}
+
+			if($(this).html()=="末页"){
+				alert("已经是最后一页了");
+				p=last_page;
+			}
+
+			$.ajax({
+				url:'../php/resourcePage.php',
+				data:{ p:p,tag:tag},
+				type:"POST",
+				success:function (data){
+					var arr = eval("("+data+")");
+					$("#resource_list").html(arr['text']);
+					last_page = arr['num'];
+				}
+			});
+		});
+
+		$(".page_btn ul li").mouseover(function(){
+			if($(this).css('background-color')!="rgb(130, 40, 40)"){
+				$(this).css({
+					backgroundColor: '#777777'
+				})
+			}
+		});
+		$(".page_btn ul li").mouseout(function(){
+			if($(this).css('background-color')!="rgb(130, 40, 40)"){
+				$(this).css({
+					backgroundColor: '#888888'
+				})
+			}
+		});
+		window.onresize = function(){
+			setFullBg("app");
+		}
+	}
+</script>
+</body>
+</html>
